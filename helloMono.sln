@@ -17,12 +17,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "p11", "p11\p11.csproj", "{3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "p12", "p12\p12.csproj", "{AF988203-3E93-4294-99DA-F3EDE51B9B91}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "p13", "p13\p13.csproj", "{07B686F5-6633-4BE3-BA6B-2FCA90B71B34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{07B686F5-6633-4BE3-BA6B-2FCA90B71B34}.Debug|x86.ActiveCfg = Debug|x86
+		{07B686F5-6633-4BE3-BA6B-2FCA90B71B34}.Debug|x86.Build.0 = Debug|x86
+		{07B686F5-6633-4BE3-BA6B-2FCA90B71B34}.Release|x86.ActiveCfg = Release|x86
+		{07B686F5-6633-4BE3-BA6B-2FCA90B71B34}.Release|x86.Build.0 = Release|x86
 		{1B820176-F6AB-48E4-A2FC-DC7E4EAC8ADB}.Debug|x86.ActiveCfg = Debug|x86
 		{1B820176-F6AB-48E4-A2FC-DC7E4EAC8ADB}.Debug|x86.Build.0 = Debug|x86
 		{1B820176-F6AB-48E4-A2FC-DC7E4EAC8ADB}.Release|x86.ActiveCfg = Release|x86
@@ -57,6 +63,6 @@ Global
 		{FE29E9F8-100C-4D3C-BDA4-BBBB6319CAE3}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = p12\p12.csproj
+		StartupItem = p13\p13.csproj
 	EndGlobalSection
 EndGlobal
