@@ -75,108 +75,12 @@ namespace Book
             s1.scores["国語"] = 100;
             s1.scores["英語"] = 50;
 
+            var p3 = new Person("齋藤", "さん", "さいとう", "さん", new DateTime(1970,1,1));
+            var s2 = new Student("齋藤", "さん", "さいとう", "さん", new DateTime(1970, 1, 1));
+
             Console.Write(s1.lastName + " " + s1.firstName);
             Console.WriteLine("合計点:" + s1.getTotalScore());
         }
     }
 
-    class Book
-    {
-        public string title;
-        public string author;
-        public DateTime publishedDate;
-        private int price;
-        public const double taxRatio = 0.08;
-
-        public Book() { }
-        public Book(string title, string author, DateTime publishedDate, int price) {
-            this.title = title;
-            this.author = author;
-            this.publishedDate = publishedDate;
-            this.price = price;
-        }
-
-        public int Price {
-            get { return price; }
-            set
-            {
-                if(value >= 0)
-                {
-                    price = value;
-                }
-            }
-        }
-
-        public int getTax()
-        {
-            return (int)(price * taxRatio);
-        }
-
-        public int getTaxIncludedPrice()
-        {
-            return price + getTax();
-        }
-    }
-
-    class Magazine : Book
-    {
-        public int month;
-        public string getMonth()
-        {
-            return month + "月号";
-        }
-    }
-
-    class Novel : Book
-    {
-        public string series;
-    }
-
-    class Person
-    {
-        public string lastName;
-        public string firstName;
-        public string furiganaLastName;
-        public string furiganaFirstName;
-        public DateTime birthday;
-        private double _height;
-
-        public double Height {
-            get { return _height; }
-            set {
-                if (value >= 0)
-                {
-                    _height = value;
-                }
-            }
-        }
-        public double Weight { get; set; }
-
-        public int getAge()
-        {
-            int age = 0;
-            DateTime now = DateTime.Now;
-            TimeSpan ts = now - birthday;
-            age = (int)((double)ts.Days / 365.2425);
-            return age;
-        } 
-    }
-
-    class Student : Person
-    {
-        public string id;
-        public int grade;
-        public Dictionary<string, int> scores;
-
-        public int getTotalScore()
-        {
-            int totalScore = 0;
-            foreach (var score in scores.Values)
-            {
-                totalScore += score;
-            }
-
-            return totalScore;
-        }
-    }
 }
