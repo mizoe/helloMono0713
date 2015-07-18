@@ -10,10 +10,12 @@ namespace Dice
     {
         static void Main(string[] args)
         {
-            var dice    = new Dice();
-            var history = new List<int>();
-            var stats   = new int[7] {0,0,0,0,0,0,0};
-            var total = 0;
+
+            Dice[] dice = new Dice[4];
+            dice[0] = new Dice();
+            dice[1] = new Dice();
+            dice[2] = new Dice();
+            dice[3] = new Dice();
 
             while (true)
             {
@@ -21,29 +23,25 @@ namespace Dice
                 string msg = "";
                 if (input == "h")
                 {
-                    msg = "履歴：";
-                    foreach (var item in history)
-                    {
-                        msg += " " + item;
-                    }
-                    msg += "\n";
-                    int sum = 0;
-                    for (int i = 1; i <= 6; i++)
-                    {
-                        double ratio = stats[i] * 100 / total;
-                        msg += i + ":" + stats[i] + "(" + ratio + "%)\n";
-                        sum += stats[i] * i;
-                    }
-                    msg += "合計: " + total + "回\n";
-                    msg += "平均: " + ((double)sum/total) + "\n";
+                    msg = dice[0].getHistory();
+                    msg += dice[0].getStats();
+                    msg += dice[1].getHistory();
+                    msg += dice[1].getStats();
+                    msg += dice[2].getHistory();
+                    msg += dice[2].getStats();
+                    msg += dice[3].getHistory();
+                    msg += dice[3].getStats();
                 }
                 else
                 {
-                    int result = dice.Roll();
-                    history.Add(result);
-                    stats[result]++;
-                    total++;
+                    int result = dice[0].Roll();
                     msg = result.ToString();
+                    result = dice[1].Roll();
+                    msg += " " + result.ToString();
+                    result = dice[2].Roll();
+                    msg += " " + result.ToString();
+                    result = dice[3].Roll();
+                    msg += " " + result.ToString();
                 }
                 Console.Write(msg);
             }
