@@ -11,11 +11,13 @@ namespace Dice
         static void Main(string[] args)
         {
 
-            Dice[] dice = new Dice[4];
-            dice[0] = new Dice();
-            dice[1] = new Dice();
-            dice[2] = new Dice();
-            dice[3] = new Dice();
+            Dice[] dice = new Dice[3];
+            var player = new Player();
+
+            for (int i = 0; i < dice.Length; i++)
+            {
+                dice[i] = new Dice();
+            }
 
             while (true)
             {
@@ -23,25 +25,24 @@ namespace Dice
                 string msg = "";
                 if (input == "h")
                 {
-                    msg = dice[0].getHistory();
-                    msg += dice[0].getStats();
-                    msg += dice[1].getHistory();
-                    msg += dice[1].getStats();
-                    msg += dice[2].getHistory();
-                    msg += dice[2].getStats();
-                    msg += dice[3].getHistory();
-                    msg += dice[3].getStats();
+                    for (int i = 0; i < dice.Length; i++)
+                    {
+                        msg += dice[i].getHistory();
+                        msg += dice[i].getStats();
+                    }
                 }
                 else
                 {
-                    int result = dice[0].Roll();
-                    msg = result.ToString();
-                    result = dice[1].Roll();
-                    msg += " " + result.ToString();
-                    result = dice[2].Roll();
-                    msg += " " + result.ToString();
-                    result = dice[3].Roll();
-                    msg += " " + result.ToString();
+                    var allResults = new int[dice.Length];
+                    for (int i = 0; i < dice.Length; i++)
+                    {
+                        int result = dice[i].Roll();
+                        msg += " " + result.ToString();
+                        allResults[i] = result;
+                    }
+                    int score = player.calcPoint(allResults);
+                    msg += " 結果:" + score + "ポイント"
+                         + " 残高:" + player.point +"ポイント";
                 }
                 Console.Write(msg);
             }
